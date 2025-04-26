@@ -61,6 +61,7 @@ const Features: React.FC = () => {
         <h2 className="text-4xl md:text-5xl font-bold mb-6">
           Powerful Features for <span className="text-gradient">Secure Freelancing</span>
         </h2>
+        
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

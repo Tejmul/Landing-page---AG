@@ -8,6 +8,8 @@ import ScrollIndicator from './components/ScrollIndicator';
 import About from './components/About';
 import Features from './components/Features';
 import LaunchTeaser from './components/LaunchTeaser';
+import Blog from './components/Blog';
+import EngagementTracker from './components/EngagementTracker';
 
 function App() {
   // Set launch date to June 1st, 2025
@@ -16,6 +18,7 @@ function App() {
   return (
     <div className="min-h-screen w-full bg-dark bg-grid-pattern bg-grid-overlay overflow-hidden">
       <Toaster position="top-center" expand={true} richColors />
+      <EngagementTracker />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Header />
         <main>
@@ -31,6 +34,7 @@ function App() {
           </div>
           <About />
           <Features />
+          <Blog />
           <LaunchTeaser />
           <ScrollIndicator />
         </main>

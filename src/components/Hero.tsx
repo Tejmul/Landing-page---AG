@@ -19,21 +19,19 @@ const Hero: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        The Future of{' '}
-        <span className="text-gradient">Freelancing</span>
+        Welcome to{' '}
+        <span className="text-gradient">AssureGig</span>
+
       </motion.h1>
       
-      <motion.p 
+      <motion.div 
         ref={descriptionRef}
-        className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto transition-all duration-1000 opacity-0 transform translate-y-4"
+        className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto transition-all duration-1000 opacity-0 transform translate-y-4 space-y-4"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
       >
-        Connect with top talent and opportunities in our premium
-        freelance marketplace. Be a client, freelancer, or both - the
-        choice is yours.
-      </motion.p>
+      </motion.div>
     </section>
   );
 };

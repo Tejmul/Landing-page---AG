@@ -50,10 +50,12 @@ const LaunchTeaser: React.FC = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 10 }}
           >
-            <Zap className="h-8 w-8 text-primary-400 mr-2" />
+            <Zap className="h-8 w-15 text-primary-400 mr-2" />
             <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white to-primary-200 bg-clip-text text-transparent">
-              AssuredGig is Launching Soon!
+            The Future of{' '}
+            <span className="text-gradient">Freelancing</span>
             </h2>
+          
           </motion.div>
           
           <motion.p 
