@@ -20,7 +20,7 @@ const Hero: React.FC = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         Welcome to{' '}
-        <span className="text-gradient">AssureGig</span>
+        <span className="text-gradient">AssuredGig</span>
 
       </motion.h1>
       
