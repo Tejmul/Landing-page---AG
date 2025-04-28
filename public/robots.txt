@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://assuregig.com/sitemap.xml
+Sitemap: https://assuredgig.com/sitemap.xml
 
 # Disallow admin and private areas
 Disallow: /admin/

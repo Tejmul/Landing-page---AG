@@ -3,21 +3,21 @@ import BlogPost from './BlogPost';
 
 const blogPosts = [
   {
-    title: "Why AssureGig is Revolutionizing the Freelance Industry",
+    title: "Why AssuredGig is Revolutionizing the Freelance Industry",
     date: "April 22, 2024",
-    excerpt: "Discover how AssureGig is transforming the way freelancers and clients connect, ensuring quality and reliability in every interaction.",
+    excerpt: "Discover how AssuredGig is transforming the way freelancers and clients connect, ensuring quality and reliability in every interaction.",
     slug: "revolutionizing-freelance-industry"
   },
   {
-    title: "The Future of Work: AssureGig's Vision for 2024",
+    title: "The Future of Work: AssuredGig's Vision for 2024",
     date: "April 20, 2024",
-    excerpt: "Learn about AssureGig's innovative approach to talent management and how we're shaping the future of work in the digital age.",
+    excerpt: "Learn about AssuredGig's innovative approach to talent management and how we're shaping the future of work in the digital age.",
     slug: "future-of-work-2024"
   },
   {
-    title: "Building Trust in Freelancing: The AssureGig Way",
+    title: "Building Trust in Freelancing: The AssuredGig Way",
     date: "April 18, 2024",
-    excerpt: "Explore how AssureGig is building a trusted ecosystem for freelancers and clients through our unique verification and quality assurance processes.",
+    excerpt: "Explore how AssuredGig is building a trusted ecosystem for freelancers and clients through our unique verification and quality assurance processes.",
     slug: "building-trust-freelancing"
   }
 ];
@@ -27,7 +27,7 @@ const Blog: React.FC = () => {
     <section className="py-16 px-4 md:px-8">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12">
-          Latest from <span className="text-gradient">AssureGig</span>
+          Latest from <span className="text-gradient">AssuredGig</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.map((post, index) => (
