@@ -1,4 +1,4 @@
-# AssureGig Landing Page
+# AssuredGig Landing Page
 
 A modern, SEO-optimized landing page for AssureGig, built with React, TypeScript, and Tailwind CSS.
 
@@ -39,21 +39,22 @@ A modern, SEO-optimized landing page for AssureGig, built with React, TypeScript
 ### Additional SEO Tips
 
 1. **Create Backlinks**:
+
    - Submit to business directories (Google Business, Crunchbase, etc.)
    - Create guest posts on industry blogs
    - Engage in forums and communities
-
 2. **Content Strategy**:
+
    - Regularly update the blog with new content
    - Create case studies and success stories
    - Share industry insights and trends
-
 3. **Technical SEO**:
+
    - Ensure fast loading times
    - Make sure the site is mobile-friendly
    - Use descriptive URLs for blog posts
-
 4. **Social Media**:
+
    - Share blog posts on social media
    - Engage with followers
    - Create shareable content
@@ -73,4 +74,4 @@ npm run build
 
 ## License
 
-MIT 
+MIT

@@ -54,7 +54,7 @@ const Header: React.FC = () => {
                 <Instagram className="h-5 w-5" />
               </a>
               <a 
-                href="#"
+                href="https://x.com/AssuredGig"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-primary-400 hover:scale-110 transition-all duration-200"
@@ -63,7 +63,7 @@ const Header: React.FC = () => {
                 <Twitter className="h-5 w-5" />
               </a>
               <a 
-                href="#"
+                href="https://www.youtube.com/@assuredgig"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-primary-400 hover:scale-110 transition-all duration-200"
