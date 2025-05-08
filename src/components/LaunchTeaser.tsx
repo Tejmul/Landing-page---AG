@@ -86,7 +86,7 @@ const LaunchTeaser: React.FC = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            Join the waitlist to get early access and updates!
+            All rights Reserved - Founded by Tejmul Movin
           </motion.p>
           
           <AnimatePresence>
