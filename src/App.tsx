@@ -12,8 +12,8 @@ import Blog from './components/Blog';
 import EngagementTracker from './components/EngagementTracker';
 
 function App() {
-  // Set launch date to June 1st, 2025
-  const launchDate = new Date('2025-06-01T00:00:00');
+  // Set launch date to June 28th, 2025
+  const launchDate = new Date('2025-06-28T00:00:00');
   
   return (
     <div className="min-h-screen w-full bg-dark bg-grid-pattern bg-grid-overlay overflow-hidden">

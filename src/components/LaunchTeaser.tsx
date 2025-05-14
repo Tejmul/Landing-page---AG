@@ -75,7 +75,7 @@ const LaunchTeaser: React.FC = () => {
           >
             <Rocket className="h-6 w-6 text-primary-400 mr-2" />
             <p className="text-2xl font-semibold">
-              Launching June 1st, 2025
+              Launching June 28th, 2025
             </p>
           </motion.div>
           
