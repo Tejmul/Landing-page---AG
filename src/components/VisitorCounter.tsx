@@ -56,7 +56,7 @@ const VisitorCounter: React.FC = () => {
 
   return (
     <motion.div 
-      className="w-full grid grid-cols-1 md:grid-cols-2 gap-4"
+      className="w-full flex flex-col md:flex-row justify-center items-center gap-6"
       variants={counterVariants}
       initial="hidden"
       animate="visible"

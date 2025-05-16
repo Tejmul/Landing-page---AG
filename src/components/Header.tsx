@@ -1,31 +1,63 @@
-import React from 'react';
-import { Zap, Linkedin, Instagram, Twitter, Youtube } from 'lucide-react';
+import React, { useState } from 'react';
+import {  Linkedin, Instagram, Twitter, Youtube, Check, Loader2 } from 'lucide-react';
+import { toast } from 'sonner';
 
 const Header: React.FC = () => {
+  const [isNotified, setIsNotified] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleNotify = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      setIsNotified(true);
+      toast.success('You will be notified! 🎉', {
+        description: "Thanks for your interest. We'll keep you updated with the latest news and launch details.",
+        icon: <Check className="h-5 w-5 text-green-500" />,
+        duration: 4000,
+      });
+      setTimeout(() => setIsNotified(false), 4000);
+    }, 1200);
+  };
+
+  // Social links for random redirect
+  const updateLinks = [
+    'https://www.youtube.com/@assuredgig',
+    'https://www.instagram.com/assuredgig/?hl=en',
+    'https://www.linkedin.com/company/assuredgig/'
+  ];
+
+  const handleRandomUpdate = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const randomUrl = updateLinks[Math.floor(Math.random() * updateLinks.length)];
+    window.open(randomUrl, '_blank');
+  };
+
   return (
     <header className="py-6">
       <div className="flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="flex items-center space-x-2">
-          <Zap className="h-8 w-8 text-primary-400" />
+          <img src="/assuredgiglogo.png" alt="AssuredGig Logo" className="h-8 w-8 object-contain" />
           <span className="text-xl font-semibold tracking-tight">AssuredGig</span>
         </div>
         
         <nav className="hidden md:flex space-x-8">
           <a 
             href="#about" 
-            className="text-gray-300 hover:text-white transition-colors duration-200"
+            className="text-gray-100 font-semibold hover:text-primary-400 transition-colors duration-200 relative after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-primary-400 after:transition-all after:duration-300 hover:after:w-full"
           >
             About
           </a>
           <a 
             href="#features" 
-            className="text-gray-300 hover:text-white transition-colors duration-200"
+            className="text-gray-100 font-semibold hover:text-primary-400 transition-colors duration-200 relative after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-primary-400 after:transition-all after:duration-300 hover:after:w-full"
           >
             Features
           </a>
-          <a 
-            href="#updates" 
-            className="text-gray-300 hover:text-white transition-colors duration-200"
+          <a
+            href="#updates"
+            onClick={handleRandomUpdate}
+            className="text-gray-100 font-semibold hover:text-primary-400 transition-colors duration-200 relative after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-0.5 after:bg-primary-400 after:transition-all after:duration-300 hover:after:w-full"
           >
             Updates
           </a>
@@ -74,12 +106,25 @@ const Header: React.FC = () => {
             </div>
           </div>
           
-          <a 
-            href="#notify" 
-            className="bg-transparent border border-primary-500 text-primary-400 hover:bg-primary-500 hover:text-white transition-all duration-300 px-4 py-2 rounded-md text-sm font-medium"
+          <button
+            onClick={handleNotify}
+            disabled={isLoading || isNotified}
+            className={`bg-transparent border border-primary-500 text-primary-400 hover:bg-primary-500 hover:text-white transition-all duration-300 px-4 py-2 rounded-md text-sm font-medium flex items-center justify-center space-x-2 ${isLoading || isNotified ? 'opacity-75 cursor-not-allowed' : ''}`}
           >
-            Get Notified
-          </a>
+            {isLoading ? (
+              <>
+                <Loader2 className="h-4 w-4 animate-spin mr-2" />
+                <span>Processing...</span>
+              </>
+            ) : isNotified ? (
+              <>
+                <Check className="h-4 w-4 text-green-500 mr-2" />
+                <span>Notified!</span>
+              </>
+            ) : (
+              'Get Notified'
+            )}
+          </button>
         </div>
       </div>
     </header>
