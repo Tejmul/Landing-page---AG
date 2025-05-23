@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {  Linkedin, Instagram, Twitter, Youtube, Check, Loader2, MessageSquare, MessageCircle } from 'lucide-react';
+import {  Linkedin, Instagram, Twitter, Youtube, Check, Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 
 const DiscordIcon = () => (
