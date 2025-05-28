@@ -1,8 +1,10 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { Suspense, lazy } from 'react';
+import { motion, LazyMotion, domAnimation } from 'framer-motion';
 import { Lock, FileText, Users } from 'lucide-react';
-import CountdownTimer from './CountdownTimer';
 import { useNavigate } from 'react-router-dom';
+
+// Lazy load CountdownTimer
+const CountdownTimer = lazy(() => import('./CountdownTimer'));
 
 const launchDate = new Date('2025-06-28T00:00:00');
 
@@ -21,24 +23,17 @@ const Hero: React.FC = () => {
         <path fill="#22d3ee" fillOpacity="0.2" d="M0,160L60,170.7C120,181,240,203,360,197.3C480,192,600,160,720,133.3C840,107,960,85,1080,101.3C1200,117,1320,171,1380,197.3L1440,224L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z" />
       </svg>
       {/* Title */}
-      <motion.h1
-        className="mb-8 z-10"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
-      >
-        <span className="block text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-2">Welcome to</span>
-        <span className="block text-5xl md:text-7xl lg:text-8xl font-extrabold text-primary-400 drop-shadow-glow">AssuredGig</span>
-      </motion.h1>
-      {/* Description */}
-      <motion.p
-        className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 z-10"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.7 }}
-      >
-        Join the platform that's changing how freelancers and clients work together. Say goodbye to payment issues and hello to a secure, transparent freelancing ecosystem.
-      </motion.p>
+      <LazyMotion features={domAnimation}>
+        <motion.h1
+          className="mb-8 z-10"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+        >
+          <span className="block text-3xl md:text-5xl lg:text-6xl font-extrabold text-white mb-2">Welcome to</span>
+          <span className="block text-5xl md:text-7xl lg:text-8xl font-extrabold text-primary-400 drop-shadow-glow">AssuredGig</span>
+        </motion.h1>
+      </LazyMotion>
       {/* Value Proposition Badges */}
       <div className="flex flex-wrap justify-center gap-6 mb-12 z-10">
         <span className="bg-primary-400/10 text-primary-300 px-6 py-3 rounded-full font-semibold text-base border border-primary-400/30 min-w-[200px] cursor-pointer hover:bg-primary-400/20 transition-all duration-200">Guaranteed Payments</span>
@@ -52,39 +47,44 @@ const Hero: React.FC = () => {
       {/* Countdown Timer with border/background */}
       <div className="mb-12 z-10 flex justify-center">
         <div className="rounded-2xl border border-primary-400/30 bg-dark-300/60 px-8 py-6 shadow-lg inline-block">
-          <CountdownTimer targetDate={launchDate} />
+          <Suspense fallback={<div className="text-primary-300">Loading...</div>}>
+            <CountdownTimer targetDate={launchDate} />
+          </Suspense>
         </div>
       </div>
       {/* CTA Buttons */}
-      <motion.div
-        className="z-10 flex flex-col sm:flex-row items-center justify-center gap-6 mt-2"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.3 }}
-      >
-        <button
-          className="bg-yellow-400 text-dark px-12 py-5 rounded-xl font-bold text-xl shadow-lg animate-pulse hover:bg-yellow-300 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-yellow-300"
-          onClick={() => window.open('https://www.instagram.com/assuredgig/?hl=en', '_blank')}
+      <LazyMotion features={domAnimation}>
+        <motion.div
+          className="z-10 flex flex-col sm:flex-row items-center justify-center gap-6 mt-2"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.3 }}
         >
-          Join the Waitlist
-        </button>
-        <button
-          className="bg-transparent border-2 border-primary-400 text-primary-300 px-12 py-5 rounded-xl font-bold text-xl hover:bg-primary-400 hover:text-dark transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-primary-300"
-          onClick={() => navigate('/learn-more')}
-        >
-          Learn More
-        </button>
-      </motion.div>
+          <button
+            className="bg-yellow-400 text-dark px-12 py-5 rounded-xl font-bold text-xl shadow-lg animate-pulse hover:bg-yellow-300 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-yellow-300"
+            onClick={() => window.open('https://www.instagram.com/assuredgig/?hl=en', '_blank')}
+          >
+            Join the Waitlist
+          </button>
+          <button
+            className="bg-transparent border-2 border-primary-400 text-primary-300 px-12 py-5 rounded-xl font-bold text-xl hover:bg-primary-400 hover:text-dark transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-primary-300"
+            onClick={() => navigate('/learn-more')}
+          >
+            Learn More
+          </button>
+        </motion.div>
+      </LazyMotion>
       {/* Floating 3D Feature Icons (moved away from center) */}
       {floatingFeatures.map((feature, i) => (
-        <motion.div
-          key={i}
-          className={`absolute ${feature.className} z-0`}
-          animate={{ y: [0, 20, 0] }}
-          transition={{ repeat: Infinity, duration: 4, delay: feature.delay }}
-        >
-          <feature.icon className="h-10 w-10 text-primary-300 drop-shadow-glow bg-dark-300/80 rounded-full p-2" />
-        </motion.div>
+        <LazyMotion key={i} features={domAnimation}>
+          <motion.div
+            className={`absolute ${feature.className} z-0`}
+            animate={{ y: [0, 20, 0] }}
+            transition={{ repeat: Infinity, duration: 4, delay: feature.delay }}
+          >
+            <feature.icon className="h-10 w-10 text-primary-300 drop-shadow-glow bg-dark-300/80 rounded-full p-2" />
+          </motion.div>
+        </LazyMotion>
       ))}
     </section>
   );

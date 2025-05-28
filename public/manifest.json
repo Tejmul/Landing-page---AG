@@ -1,0 +1,50 @@
+{
+  "name": "AssuredGig - Secure Freelance Platform",
+  "short_name": "AssuredGig",
+  "description": "A secure freelance platform alternative to Fiverr & Upwork",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050A14",
+  "theme_color": "#06b6d4",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assuredgiglogo-sm.webp",
+      "sizes": "32x32",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assuredgiglogo-md.webp",
+      "sizes": "64x64",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assuredgiglogo-lg.webp",
+      "sizes": "128x128",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Learn More",
+      "short_name": "Learn",
+      "description": "Learn more about AssuredGig",
+      "url": "/learn-more",
+      "icons": [{ "src": "/assuredgiglogo-sm.webp", "sizes": "32x32" }]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/home.webp",
+      "sizes": "1280x720",
+      "type": "image/webp",
+      "platform": "wide",
+      "label": "AssuredGig Homepage"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "prefer_related_applications": false
+} 

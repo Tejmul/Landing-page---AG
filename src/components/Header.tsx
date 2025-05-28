@@ -48,7 +48,15 @@ const Header: React.FC = () => {
     <header className="py-6">
       <div className="flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="flex items-center space-x-2">
-          <img src="/assuredgiglogo.png" alt="AssuredGig Logo" className="h-8 w-8 object-contain" />
+          <img 
+            src="/assuredgiglogo.webp" 
+            alt="AssuredGig Logo" 
+            className="h-8 w-8 object-contain"
+            width="32"
+            height="32"
+            loading="eager"
+            fetchPriority="high"
+          />
           <span className="text-xl font-semibold tracking-tight">AssuredGig</span>
         </div>
         

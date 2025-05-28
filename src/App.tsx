@@ -1,44 +1,73 @@
+import React, { Suspense } from 'react';
 import { Toaster } from 'sonner';
-import Header from './components/Header';
-import Hero from './components/Hero';
-
-import ScrollIndicator from './components/ScrollIndicator';
-import About from './components/About';
-import Features from './components/Features';
-import Blog from './components/Blog';
-import EngagementTracker from './components/EngagementTracker';
-import SocialProof from './components/SocialProof';
-import LearnMore from './components/LearnMore';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LoadingFallback from './components/LoadingFallback';
 
-function App() {
+// Lazy load components
+const Header = React.lazy(() => import('./components/Header'));
+const Hero = React.lazy(() => import('./components/Hero'));
+const ScrollIndicator = React.lazy(() => import('./components/ScrollIndicator'));
+const About = React.lazy(() => import('./components/About'));
+const Features = React.lazy(() => import('./components/Features'));
+const Blog = React.lazy(() => import('./components/Blog'));
+const EngagementTracker = React.lazy(() => import('./components/EngagementTracker'));
+const SocialProof = React.lazy(() => import('./components/SocialProof'));
+const LearnMore = React.lazy(() => import('./components/LearnMore'));
+
+const App: React.FC = () => {
   // Set launch date to June 28th, 2025
   const launchDate = new Date('2025-06-28T00:00:00');
   
   return (
     <BrowserRouter>
       <div className="min-h-screen w-full bg-dark bg-grid-pattern bg-grid-overlay overflow-hidden">
-        <Toaster position="top-center" expand={true} richColors />
-        <EngagementTracker />
+        <Toaster 
+          position="top-center" 
+          expand={true} 
+          richColors 
+          closeButton
+          theme="dark"
+        />
+        <Suspense fallback={<LoadingFallback />}>
+          <EngagementTracker />
+        </Suspense>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Header />
+          <Suspense fallback={<LoadingFallback />}>
+            <Header />
+          </Suspense>
           <Routes>
             <Route path="/" element={
               <main>
-                <Hero />
-                <About />
-                <Features />
-                <SocialProof />
-                <Blog />
-                <ScrollIndicator />
+                <Suspense fallback={<LoadingFallback />}>
+                  <Hero />
+                </Suspense>
+                <Suspense fallback={<LoadingFallback />}>
+                  <About />
+                </Suspense>
+                <Suspense fallback={<LoadingFallback />}>
+                  <Features />
+                </Suspense>
+                <Suspense fallback={<LoadingFallback />}>
+                  <SocialProof />
+                </Suspense>
+                <Suspense fallback={<LoadingFallback />}>
+                  <Blog />
+                </Suspense>
+                <Suspense fallback={null}>
+                  <ScrollIndicator />
+                </Suspense>
               </main>
             } />
-            <Route path="/learn-more" element={<LearnMore />} />
+            <Route path="/learn-more" element={
+              <Suspense fallback={<LoadingFallback />}>
+                <LearnMore />
+              </Suspense>
+            } />
           </Routes>
         </div>
       </div>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

@@ -6,24 +6,23 @@ export interface TimeLeft {
 }
 
 export const calculateTimeLeft = (targetDate: Date): TimeLeft => {
-  const difference = +targetDate - +new Date();
-  let timeLeft: TimeLeft = {
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  };
-
-  if (difference > 0) {
-    timeLeft = {
-      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-      minutes: Math.floor((difference / 1000 / 60) % 60),
-      seconds: Math.floor((difference / 1000) % 60)
+  const difference = targetDate.getTime() - new Date().getTime();
+  
+  if (difference <= 0) {
+    return {
+      days: 0,
+      hours: 0,
+      minutes: 0,
+      seconds: 0
     };
   }
 
-  return timeLeft;
+  return {
+    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+    minutes: Math.floor((difference / 1000 / 60) % 60),
+    seconds: Math.floor((difference / 1000) % 60)
+  };
 };
 
 // Generate a random number between min and max (inclusive)
