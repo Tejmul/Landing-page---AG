@@ -123,7 +123,7 @@ const Header: React.FC = () => {
                 <Youtube className="h-5 w-5" />
               </a>
               <a 
-                href="https://discord.gg/cHzZQ7P2"
+                href="https://discord.gg/TA3k6sxuz8"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-primary-400 hover:scale-110 transition-all duration-200"
