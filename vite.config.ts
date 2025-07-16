@@ -32,12 +32,6 @@ export default defineConfig({
     },
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          icons: ['lucide-react'],
-          animations: ['framer-motion'],
-          utils: ['lodash', 'date-fns'],
-        },
         chunkFileNames: 'assets/[name]-[hash].js',
         entryFileNames: 'assets/[name]-[hash].js',
         assetFileNames: 'assets/[name]-[hash].[ext]',
@@ -48,10 +42,6 @@ export default defineConfig({
     sourcemap: false,
     target: 'es2015',
     chunkSizeWarningLimit: 1000,
-  },
-  optimizeDeps: {
-    exclude: ['lucide-react'],
-    include: ['react', 'react-dom', 'react-router-dom', 'framer-motion'],
   },
   server: {
     hmr: {

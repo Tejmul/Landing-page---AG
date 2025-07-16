@@ -15,8 +15,6 @@ const SocialProof = React.lazy(() => import('./components/SocialProof'));
 const LearnMore = React.lazy(() => import('./components/LearnMore'));
 
 const App: React.FC = () => {
-  // Set launch date to June 28th, 2025
-  const launchDate = new Date('2025-06-28T00:00:00');
   
   return (
     <BrowserRouter>

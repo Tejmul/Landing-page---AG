@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, useMotionValue, useAnimationFrame } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
   Lock, Users, FileText, LayoutDashboard, 
   MessageSquare, Bell, Star, Shield 
@@ -47,32 +47,6 @@ const features = [
     description: 'If things go south, our team helps resolve conflicts quickly and fairly.'
   }
 ];
-
-const stats = [
-  { label: 'Total Freelancers', value: 12800 },
-  { label: 'Clients Protected', value: 3200 },
-  { label: 'Gigs Secured', value: 54000 },
-];
-
-function AnimatedNumber({ value }: { value: number }) {
-  const [display, setDisplay] = React.useState(0);
-  React.useEffect(() => {
-    let start = 0;
-    let startTime: number | null = null;
-    const duration = 1500;
-    function animateNumber(timestamp: number) {
-      if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / duration, 1);
-      setDisplay(Math.round(progress * value));
-      if (progress < 1) {
-        requestAnimationFrame(animateNumber);
-      }
-    }
-    requestAnimationFrame(animateNumber);
-    return () => {};
-  }, [value]);
-  return <span>{display.toLocaleString()}</span>;
-}
 
 const Features: React.FC = () => {
   return (

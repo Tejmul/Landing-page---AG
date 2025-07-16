@@ -2,6 +2,7 @@
 declare global {
   interface Window {
     gtag: (...args: any[]) => void;
+    dataLayer: any[];
   }
 }
 
@@ -16,8 +17,9 @@ export const initGA = (measurementId: string) => {
 
     // Initialize gtag
     window.dataLayer = window.dataLayer || [];
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     function gtag(...args: any[]) {
-      window.dataLayer.push(arguments);
+      window.dataLayer.push(args);
     }
     gtag('js', new Date());
     gtag('config', measurementId);

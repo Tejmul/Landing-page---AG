@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 // Lazy load CountdownTimer
 const CountdownTimer = lazy(() => import('./CountdownTimer'));
 
-const launchDate = new Date('2025-06-28T00:00:00');
+const launchDate = new Date(Date.now() + 10 * 24 * 60 * 60 * 1000);
 
 const floatingFeatures = [
   { icon: Lock, className: 'top-10 left-8', delay: 0 },
